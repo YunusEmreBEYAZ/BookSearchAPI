@@ -1,4 +1,4 @@
-
+import { initPage } from './page.js';
 
 const loadApp = () => {
     initPage();
