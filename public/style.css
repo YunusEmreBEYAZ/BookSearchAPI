@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+#upper-div{
+    display: flex;
+    flex-direction: row;
+}
+
+
+#input{
+    margin-top: 10px;
+    width: 25vh;
+    height: 4vh;
+}
+
+#button{
+    margin-top: 10px;
+    width: 15vh;
+    height: 4vh;
+}
