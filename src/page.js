@@ -21,7 +21,7 @@ async function search(data) {
         const response = await fetchData(data);
         results(response);
     } catch (error) {
-        alert(error.statusText)
+        document.getElementById('info-section').innerHTML = `${error.statusText}`;
     }
 }
 
