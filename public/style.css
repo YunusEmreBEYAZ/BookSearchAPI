@@ -5,25 +5,120 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
+    padding-top: 2%;
+    width: 100%;
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    background: linear-gradient(rgb(240, 234, 240),rgb(231, 113, 133));
 
 }
 
-#upper-div{
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: justify;
+}
+
+#upper-section{
     display: flex;
     flex-direction: row;
+    margin-top: 2%;
+
 }
 
 
 #input{
-    margin-top: 10px;
     width: 25vh;
     height: 4vh;
+    border-radius: 9px 0 0 9px;
+    background: rgb(240, 234, 240);
+    background-color: rgb(240, 234, 240);
+    box-shadow: 7px 7px 7px #0e0d0411;
+    
 }
 
 #button{
-    margin-top: 10px;
     width: 15vh;
     height: 4vh;
+    border-radius: 0 9px 9px 0;
+    box-shadow: 7px 7px 7px #0e0d0411;
+    background-color: rgb(240, 234, 240);
+}
+
+#button:hover {
+    font-weight: 600;
+    background-color: rgb(240, 225, 228);
+}
+
+#info-section {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 80vh;
+    margin: 10px;
+}
+
+#img-section {
+    width: 40%;
+    margin-top: 4vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+#book-author-section {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    line-height: 2.5rem;
+
+}
+
+#description-section{
+    width: 90%;
+    margin: auto;
+    line-height: 1.5rem;
+
+}
+
+
+@media (max-width: 900px) {
+    #info-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        height: 80vh;
+        margin: 10px;
+    }
+    
+    #img-section {
+        width: 70%;
+        margin-top: 50px;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    
+    #book-author-section {
+        width: 70%;
+        margin: auto;
+        text-align: center;
+    
+    }
+    
+    #description-section{
+        width: 100%;
+        margin: auto;
+    
+    }
+    
+
 }
