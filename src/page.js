@@ -1,51 +1,54 @@
-import { initView } from './view.js';
+import { pageView } from './view.js';
 
 export function initPage() {
-    initView();  //called the elements 
-        document.getElementById('button').addEventListener('click', search);
-        document.getElementById('input').addEventListener('keyup', (e) => {
+    pageView();  //called the elements 
+        button.addEventListener('click', () => {
+            search()
+            input.value = '';
+        });
+        input.addEventListener('keyup', (e) => {
             if(e.key === 'Enter'){
                 search();
+                input.value = '';
             }
         }) 
 
 }
 
 async function search(data) {      
-    document.getElementById('info-div').innerHTML = '';  
+      
     try {
         const response = await fetchData(data);
-
+        results(response);
     } catch (error) {
-        alert(error.message)
+        alert(error.statusText)
     }
-    new Error('Request failed!');
 }
 
 function results(bookInfo){
-
+    document.getElementById('img-section').innerHTML = '';
+    document.getElementById('book-author-section').innerHTML = '';
+    document.getElementById('description-section').innerHTML = '';
     const img = document.createElement('img');
-    document.getElementById('info-div').appendChild(img);
+    document.getElementById('img-section').appendChild(img);
     img.src = bookInfo.items[0].volumeInfo.imageLinks.thumbnail;
     const bookName = document.createElement('h2');
-    document.getElementById('info-div').appendChild(bookName);
-    bookName.textContent = bookInfo.items[0].volumeInfo.title;
-    const author = document.createElement('h2');
-    document.getElementById('info-div').appendChild(author);
-    author.textContent = bookInfo.items[0].volumeInfo.authors[0];
+    document.getElementById('book-author-section').appendChild(bookName);
+    bookName.textContent = `Book: ${bookInfo.items[0].volumeInfo.title}`;
+    const author = document.createElement('h3');
+    document.getElementById('book-author-section').appendChild(author);
+    author.textContent = `Author: ${bookInfo.items[0].volumeInfo.authors[0]}`;
     const description = document.createElement('p');
-    document.getElementById('info-div').appendChild(description);
-    description.textContent = bookInfo.items[0].volumeInfo.description;
+    document.getElementById('description-section').appendChild(description);
+    description.textContent = `Description: ${bookInfo.items[0].volumeInfo.description}`;
 
 }
 
 function fetchData(data) {
-let inputValue = document.getElementById('input').value;
-    inputValue = ''; // clear the previous search
 return fetch(`https://www.googleapis.com/books/v1/volumes?q=${input.value}&key=AIzaSyDs1Ksy7B96SOovc8LZATe1d8p-RcvCLL0`)
     .then((response) => {
         if(!response.ok){
-            document.getElementById('info-div').innerHTML = 'Fetch not responding';
+            document.getElementById('info-section').innerHTML = 'Fetch not responding';
         }
         return response.json()
     })
@@ -54,7 +57,6 @@ return fetch(`https://www.googleapis.com/books/v1/volumes?q=${input.value}&key=A
         console.log(data);
         return data;        
     })
-    .then((data) => results(data))
     .catch((error) => alert('Oops: ' + error.message));
 
 }
