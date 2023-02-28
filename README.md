@@ -31,6 +31,7 @@ index.html
 * Create a input area where the user can write a book name.
 * Create a button, when user clicks on it app will fetch the data and show user author, description and book's image
 * Add favicon.
+* When user searched a book by name, bring the author's all books. (max 10 books).
 
 
 ## Nice Have 
