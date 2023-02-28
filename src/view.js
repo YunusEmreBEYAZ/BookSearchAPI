@@ -30,7 +30,13 @@ export function pageView() {
     const descriptionSection = document.createElement('div');
     descriptionSection.setAttribute('id', 'description-section');
     infoSection.appendChild(descriptionSection);
+    const relatedBooksSection = document.createElement('div');
+    relatedBooksSection.setAttribute('id', 'related-books');
+    infoSection.appendChild(relatedBooksSection);
+    const otherBookSection = document.createElement('div');
 
+    otherBookSection.setAttribute('id', 'otherBookContainer');
+    body.appendChild(otherBookSection);
 
     
 
