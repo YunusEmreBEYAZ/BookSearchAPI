@@ -13,6 +13,7 @@ export function pageView() {
     const input = document.createElement('input');
     input.setAttribute('type', 'text');
     input.setAttribute('id', 'input');
+    input.setAttribute('placeholder', 'search a book...');
     searchSection.appendChild(input);
     const button = document.createElement('button');
     button.setAttribute('id', 'button');
